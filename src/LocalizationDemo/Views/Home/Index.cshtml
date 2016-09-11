@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using LocalizationDemo
+@using LocalizationDemo.Models
+@model Student
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = "ASP.NET Core 1.0 Localization demo";
+
+}
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <p>Default es-ES: <a href="http://localhost:7468/">http://localhost:7468</a></p>
+        <p>es-ES: <a href="http://localhost:7468/Home/Index?culture=es-ES">http://localhost:7468/Home/Index?culture=es-ES</a></p>
+        <p>tr-TR: <a href="http://localhost:7468/Home/Index?culture=tr-TR">http://localhost:7468/Home/Index?culture=tr-TR</a></p>
+        <p>en-GB: <a href="http://localhost:7468/Home/Index?culture=en-GB">http://localhost:7468/Home/Index?culture=en-GB</a></p>
+        <p>it: <a href="http://localhost:7468/Home/Index?culture=it">http://localhost:7468/Home/Index?culture=it</a></p>
+        <p>it-CH: <a href="http://localhost:7468/Home/Index?culture=it-CH">http://localhost:7468/Home/Index?culture=it-CH</a></p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <h3>@ViewData["StringLocalizer"]</h3>
+        <h3>@ViewData["StringLocalizerWithParameter"]</h3>
+        <h3>@ViewData["HtmlLocalizer"]</h3>
+        <h3>@ViewData["HtmlLocalizerWithParameter"]</h3>
+        <h3>@ViewData["SharedHtmlLocalizer"]</h3>
+        <h3>@ViewData["SharedHtmlLocalizerWithParameter"]</h3>
+        <h3>@Localizer["View localizer"]</h3>
+        <h3>@Localizer["View <b>localizer</b> with parameter <i>{0}</i>", "Parameter"]</h3>
+        <h3>@SharedLocalizer["Shared html <b>localizer</b> in view"]</h3>
+        <h3>@SharedLocalizer["Shared html <b>localizer</b> in view with paramters <i>{0}</i>", "Parameter"]</h3>
+    </div>    
+</div>
+<hr />
+<div class="row">    
+    <div class="col-md-12">
+        <p>To test error message localization: enter less than 5 characeters to Name or Surname and change the focus of of the input or press submit button.</p>
+        <p>Dislay attributes on label are localized from old style resource files - check DataAnnotations.resx.</p>
+        <div class="form-horizontal">
+            <form asp-action="Index">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Surname"></label>
+                    <input asp-for="Surname" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Surname"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gender"></label>
+                    <select asp-for="Gender" asp-items="DropDownLists.GenderList" class="form-control">
+
+                    </select>
+                    <span class="text-danger" asp-validation-for="Gender"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
