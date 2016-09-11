@@ -60,6 +60,15 @@ namespace LocalizationDemo.Resources {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to [Default] Female.
+        /// </summary>
+        public static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to [Default] Gender.
         /// </summary>
         public static string Gender {
@@ -69,11 +78,29 @@ namespace LocalizationDemo.Resources {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to [Default] Male.
+        /// </summary>
+        public static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to [Default] Name.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to [Default] None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
             }
         }
         

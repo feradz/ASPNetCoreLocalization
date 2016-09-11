@@ -8,8 +8,11 @@ namespace LocalizationDemo.Models
 {
     public enum GenderType
     {
+        [Display(Name = "None", ResourceType = typeof(Resources.DataAnnotations))]
         None,
+        [Display(Name = "Male", ResourceType = typeof(Resources.DataAnnotations))]
         Male,
+        [Display(Name = "Female", ResourceType = typeof(Resources.DataAnnotations))]
         Female
     }
     public class Student

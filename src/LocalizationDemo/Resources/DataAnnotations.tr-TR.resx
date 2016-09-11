@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Female" xml:space="preserve">
+    <value>[tr-TR] Female</value>
+  </data>
   <data name="Gender" xml:space="preserve">
     <value>[tr-TR] Gender</value>
   </data>
+  <data name="Male" xml:space="preserve">
+    <value>[tr-TR] Male</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>[tr-TR] Name</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>[tr-TR] None</value>
   </data>
   <data name="Surname" xml:space="preserve">
     <value>[tr-TR] Surname</value>

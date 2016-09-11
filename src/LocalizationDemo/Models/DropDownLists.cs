@@ -12,10 +12,14 @@ namespace LocalizationDemo.Models
         {
             get
             {
-                if (_GemderSelectList != null)
-                {
-                    return _GemderSelectList;
-                }
+                //
+                // Don't cache because we don't get the translated element
+                // when culture changes.
+                //
+                //if (_GemderSelectList != null)
+                //{
+                //    return _GemderSelectList;
+                //}
 
                 List<SelectListItem> listItems = new List<SelectListItem>();
 
@@ -25,12 +29,12 @@ namespace LocalizationDemo.Models
                 listItems.Add(empty);
 
                 SelectListItem male = new SelectListItem();
-                male.Text = GenderType.Male.ToString();
+                male.Text = GenderType.Male.DisplayName();
                 male.Value = GenderType.Male.ToString();
                 listItems.Add(male);
 
                 SelectListItem female = new SelectListItem();
-                female.Text = GenderType.Female.ToString();
+                female.Text = GenderType.Female.DisplayName();
                 female.Value = GenderType.Female.ToString();
                 listItems.Add(female);
 
