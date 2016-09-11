@@ -12,6 +12,8 @@
 <h1>@ViewData["Title"]</h1>
 <h2>[en-GB] view.</h2>
 <hr />
+@Html.Partial("_LanguageSelector")
+<hr />
 <div class="row">
     <div class="col-md-12">
         <p>Default es-ES: <a href="/Home/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host) </a></p>

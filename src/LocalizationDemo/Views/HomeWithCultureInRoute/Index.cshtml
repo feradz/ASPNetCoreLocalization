@@ -10,18 +10,40 @@
     ViewData["Title"] = "ASP.NET Core 1.0 Localization demo";
 }
 <h1>@ViewData["Title"]</h1>
-<h2>[it] view.</h2>
-<hr />
-@Html.Partial("_LanguageSelector")
+<h2>[Default] view.</h2>
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <p>Default es-ES: <a href="/Home/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host) </a></p>
-        <p>es-ES: <a href="/Home/Index?culture=es-ES">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=es-ES</a></p>
-        <p>tr-TR: <a href="/Home/Index?culture=tr-TR">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=tr-TR</a></p>
-        <p>en-GB: <a href="/Home/Index?culture=en-GB">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=en-GB</a></p>
-        <p>it: <a href="/Home/Index?culture=it">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=it</a></p>
-        <p>it-CH: <a href="/Home/Index?culture=it-CH">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=it-CH</a></p>
+        <p>Default es-ES: <a href="/es-ES/HomeWithCultureInRoute/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host) </a></p>
+        <p>es-ES: <a href="/es-ES/HomeWithCultureInRoute/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/es-ES/HomeWithCultureInRoute/Index</a></p>
+        <p>tr-TR: <a href="/tr-TR/HomeWithCultureInRoute/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/tr-TR/HomeWithCultureInRoute/Index</a></p>
+        <p>en-GB: <a href="/en-GB/HomeWithCultureInRoute/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/en-GB/HomeWithCultureInRoute/Index</a></p>
+        <p>it: <a href="/it/HomeWithCultureInRoute/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/it/HomeWithCultureInRoute/Index</a></p>
+        <p>it-CH: <a href="/it-CH/HomeWithCultureInRoute/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/it-CH/HomeWithCultureInRoute/Index</a></p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    
+    <div class="col-md-12">
+        <h3>Set language</h3>
+        <div class="form-horizontal">
+            <form asp-action="SetCulture">
+                <div class="form-group">
+                    <label>Culture</label>
+                    <select name="culture" id="culture" class="form-control">
+                        <option>es-ES</option>
+                        <option>en-GB</option>
+                        <option>tr-TR</option>
+                        <option>it</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="Gender"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Change language</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <hr />
@@ -37,10 +59,10 @@
         <h3>@Localizer["View <b>localizer</b> with parameter <i>{0}</i>", "Parameter"]</h3>
         <h3>@SharedLocalizer["Shared html <b>localizer</b> in view"]</h3>
         <h3>@SharedLocalizer["Shared html <b>localizer</b> in view with paramters <i>{0}</i>", "Parameter"]</h3>
-    </div>
+    </div>    
 </div>
 <hr />
-<div class="row">
+<div class="row">    
     <div class="col-md-12">
         <p>To test error message localization: enter less than 5 characeters to Name or Surname and change the focus of of the input or press submit button.</p>
         <p>Dislay attributes on label are localized from old style resource files - check DataAnnotations.resx.</p>
@@ -58,7 +80,9 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Gender"></label>
-                    <select asp-for="Gender" asp-items="DropDownLists.GenderList" class="form-control"></select>
+                    <select asp-for="Gender" asp-items="DropDownLists.GenderList" class="form-control">
+
+                    </select>
                     <span class="text-danger" asp-validation-for="Gender"></span>
                 </div>
                 <div class="form-group">

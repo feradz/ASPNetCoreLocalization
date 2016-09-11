@@ -38,6 +38,8 @@ namespace LocalizationDemo
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
 
+            services.AddScoped<LanguageActionFilter>();
+
             services.Configure<RequestLocalizationOptions>(
                 options =>
                 {

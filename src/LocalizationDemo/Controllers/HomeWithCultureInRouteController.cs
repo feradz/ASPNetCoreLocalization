@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
+﻿using LocalizationDemo.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
-using LocalizationDemo.Models;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Http;
-using System;
+using Microsoft.Extensions.Localization;
+
 
 namespace LocalizationDemo.Controllers
 {
-    public class HomeController : Controller
+    //
+    // This doesn't work.
+    //
+    //[ServiceFilter(typeof(LanguageActionFilter))]
+    //[Route("{culture}/[controller]")]
+    public class HomeWithCultureInRouteController : Controller
     {
-        private readonly IStringLocalizer<HomeController> _localizer;        
+        private readonly IStringLocalizer<HomeController> _localizer;
         private readonly IHtmlLocalizer<HomeController> _htmlLocalizer;
         private readonly IHtmlLocalizer<SharedResource> _sharedHtmlLocalizer;
 
-        public HomeController(IStringLocalizer<HomeController> localizer, IHtmlLocalizer<HomeController> htmlLocalizer, IHtmlLocalizer<SharedResource> sharedHtmlLocalizer)
+        public HomeWithCultureInRouteController(IStringLocalizer<HomeController> localizer, IHtmlLocalizer<HomeController> htmlLocalizer, IHtmlLocalizer<SharedResource> sharedHtmlLocalizer)
         {
             _localizer = localizer;
             _htmlLocalizer = htmlLocalizer;
@@ -31,8 +34,6 @@ namespace LocalizationDemo.Controllers
             ViewData["HtmlLocalizerWithParameter"] = _htmlLocalizer["<b>Test html localizer with parameter</b> <i>{0}</i>", "Parameter"];
             ViewData["SharedHtmlLocalizer"] = _sharedHtmlLocalizer["<b>Shared html localizer</b>"];
             ViewData["SharedHtmlLocalizerWithParameter"] = _sharedHtmlLocalizer["<b>Shared html localizer with paramter</b> <i>{0}</i>", "Parameter"];
-
-            student.SelectedCulture = HttpContext.Request.Cookies[CookieRequestCultureProvider.DefaultCookieName];
             return View(student);
         }
 
@@ -45,24 +46,7 @@ namespace LocalizationDemo.Controllers
             ViewData["HtmlLocalizerWithParameter"] = _htmlLocalizer["<b>Test html localizer with parameter</b> <i>{0}</i>", "Parameter"];
             ViewData["SharedHtmlLocalizer"] = _sharedHtmlLocalizer["<b>Shared html localizer</b>"];
             ViewData["SharedHtmlLocalizerWithParameter"] = _sharedHtmlLocalizer["<b>Shared html localizer with paramter</b> <i>{0}</i>", "Parameter"];
-            student.SelectedCulture = HttpContext.Request.Cookies[CookieRequestCultureProvider.DefaultCookieName];
             return View(student);
-        }
-
-        [HttpPost]
-        public IActionResult SetCulture(string SelectedCulture)
-        {
-            //RequestCulture requestCulture = new RequestCulture(culture);
-            //string cookieCulture = CookieRequestCultureProvider.MakeCookieValue(requestCulture);
-            CookieOptions cookieOptions = new CookieOptions();
-            cookieOptions.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, SelectedCulture);
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Error()
-        {
-            return View();
         }
     }
 }

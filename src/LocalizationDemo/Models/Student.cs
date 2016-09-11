@@ -29,5 +29,7 @@ namespace LocalizationDemo.Models
 
         [Display(Name="Gender", ResourceType = typeof(Resources.DataAnnotations))]
         public GenderType Gender { get; set; }
+
+        public string SelectedCulture { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+﻿@model LocalizationDemo.Models.Student
+<div class="row">
+
+    <div class="col-md-12">
+        <h3>Set language</h3>
+        <div class="form-horizontal">
+            <form asp-action="SetCulture">
+                <div class="form-group">
+                    <label>Culture</label>
+                    <select asp-for="SelectedCulture" class="form-control">
+                        <option value="c=es-ES|uic=es-ES">es-ES</option>
+                        <option value="c=en-GB|uic=en-GB">en-GB</option>
+                        <option value="c=tr-TR|uic=tr-TR">tr-TR</option>
+                        <option value="c=it|uic=it">it</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Change language</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
