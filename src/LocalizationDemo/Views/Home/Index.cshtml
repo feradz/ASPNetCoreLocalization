@@ -14,12 +14,12 @@
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <p>Default es-ES: <a href="http://localhost:7468/">http://localhost:7468</a></p>
-        <p>es-ES: <a href="http://localhost:7468/Home/Index?culture=es-ES">http://localhost:7468/Home/Index?culture=es-ES</a></p>
-        <p>tr-TR: <a href="http://localhost:7468/Home/Index?culture=tr-TR">http://localhost:7468/Home/Index?culture=tr-TR</a></p>
-        <p>en-GB: <a href="http://localhost:7468/Home/Index?culture=en-GB">http://localhost:7468/Home/Index?culture=en-GB</a></p>
-        <p>it: <a href="http://localhost:7468/Home/Index?culture=it">http://localhost:7468/Home/Index?culture=it</a></p>
-        <p>it-CH: <a href="http://localhost:7468/Home/Index?culture=it-CH">http://localhost:7468/Home/Index?culture=it-CH</a></p>
+        <p>Default es-ES: <a href="/Home/Index">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host) </a></p>
+        <p>es-ES: <a href="/Home/Index?culture=es-ES">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=es-ES</a></p>
+        <p>tr-TR: <a href="/Home/Index?culture=tr-TR">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=tr-TR</a></p>
+        <p>en-GB: <a href="/Home/Index?culture=en-GB">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=en-GB</a></p>
+        <p>it: <a href="/Home/Index?culture=it">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=it</a></p>
+        <p>it-CH: <a href="/Home/Index?culture=it-CH">@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)/Home/Index?culture=it-CH</a></p>
     </div>
 </div>
 <hr />

@@ -1,2 +1,4 @@
 src/LocalizationDemo/bin/**
 src/LocalizationDemo/obj/**
+src/.vs/**
+/.vs/config/applicationhost.config
