@@ -1,10 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
 @using LocalizationDemo
 @using LocalizationDemo.Models
 @model Student
 
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@inject IStringLocalizer<LocalizationDemo.Controllers.HomeController> HomeControllerLocalizer
 
 @{
     ViewData["Title"] = "ASP.NET Core 1.0 Localization demo";
@@ -37,6 +39,14 @@
         <h3>@Localizer["View <b>localizer</b> with parameter <i>{0}</i>", "Parameter"]</h3>
         <h3>@SharedLocalizer["Shared html <b>localizer</b> in view"]</h3>
         <h3>@SharedLocalizer["Shared html <b>localizer</b> in view with paramters <i>{0}</i>", "Parameter"]</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="com-md-12">
+        <h2>Example of using the controller IStringLocalizer resource in view</h2>
+        <h3>@HomeControllerLocalizer["String localizer"]</h3>
+        <h3>@HomeControllerLocalizer["String localizer with parameter - {0}", "Parameter"]</h3>
     </div>
 </div>
 <hr />
