@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "ASP.NET Core 1.0 Localization demo - View Localizer";
+}
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+@Html.Partial("_LanguageSelector")
+<hr />
+<h2>[es-ES]</h2>
+<h3>@Localizer["View localizer"]</h3>
+<h3>@Localizer["View <b>localizer</b> with parameter <i>{0}</i>", "Parameter"]</h3>
+

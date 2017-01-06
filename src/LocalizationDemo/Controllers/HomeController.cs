@@ -60,6 +60,12 @@ namespace LocalizationDemo.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult TestViewLocalizer()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();
